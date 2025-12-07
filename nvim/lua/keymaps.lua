@@ -1,10 +1,6 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
--- split window
-map('n', '<Leader>s', ':sp<cr>', opts)
-map('n', '<Leader>v', ':vs<cr>', opts)
-
 -- move window
 map('n', '<Leader>j', '<C-w>j', opts)
 map('n', '<Leader>k', '<C-w>k', opts)
