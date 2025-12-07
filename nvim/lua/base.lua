@@ -27,6 +27,7 @@ if not vim.g.vscode then
   vim.opt.showtabline = 2
   vim.o.showcmd = true
   vim.opt.swapfile = false
+  vim.opt.cursorline = true
   vim.opt.signcolumn = "yes"
   vim.cmd("highlight LineNr guifg=#8a70ac")
 end
