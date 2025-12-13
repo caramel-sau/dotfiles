@@ -19,7 +19,13 @@ map("n", "<C-c>", "<Cmd>quit<CR>", { buffer = bufnr, noremap = true, silent = tr
 
 -- Insert Mode
 map('i', 'jk', '<ESC>', opts)
+
+-- Select Mode
 map('s', 'jk', '<ESC>', opts)
+
+-- Command Mode
+map('c', '<C-p>', '<Up>', opts)
+map('c', '<C-n>', '<Down>', opts)
 
 -- show diagnostics
 map('n', '<Leader>d', ':lua vim.diagnostic.open_float()<CR>', opts)
