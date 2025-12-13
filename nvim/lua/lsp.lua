@@ -16,6 +16,7 @@ local lsp_servers = {
   "vue_ls",
   "emmet_language_server",
   "eslint",
+  "gopls",
 }
 
 require("mason").setup({
