@@ -33,6 +33,7 @@ require("lazy").setup({
     { import = "plugins.diff" },
     { import = "plugins.copilot" },
     { import = "plugins.gitsigns" },
+    { import = "plugins.surround" },
   },
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },

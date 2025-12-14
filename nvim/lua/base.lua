@@ -6,29 +6,29 @@ if not vim.g.vscode then
   vim.o.encoding = "utf-8"
   vim.o.helplang = "ja"
 
+  vim.o.clipboard = "unnamedplus"
+  vim.o.cmdheight = 1
+  vim.o.expandtab = true
+  vim.o.ignorecase = true
+  vim.o.list = true
   vim.o.number = true
   vim.o.relativenumber = true
-  vim.o.clipboard = "unnamedplus"
-  vim.o.list = true
-  vim.o.smartindent = true
-  vim.o.expandtab = true
-  vim.o.tabstop = 2
-  vim.o.shiftwidth = 2
-  vim.o.wrap = false
-  vim.o.termguicolors = true
-  vim.o.wildmenu = true
   vim.o.ruler = true
-  vim.o.smartcase = true
-  vim.o.ignorecase = true
-  vim.o.showmatch = true
-  vim.o.visualbell = true
   vim.o.scrolloff = 8
-  vim.o.cmdheight = 1
-  vim.opt.showtabline = 2
+  vim.o.shiftwidth = 2
   vim.o.showcmd = true
-  vim.opt.swapfile = false
+  vim.o.showmatch = true
+  vim.o.smartcase = true
+  vim.o.smartindent = true
+  vim.o.tabstop = 2
+  vim.o.termguicolors = true
+  vim.o.visualbell = true
+  vim.o.wildmenu = true
+  vim.o.wrap = false
   vim.opt.cursorline = true
+  vim.opt.showtabline = 2
   vim.opt.signcolumn = "yes"
+  vim.opt.swapfile = false
   vim.cmd("highlight LineNr guifg=#8a70ac")
 end
 
