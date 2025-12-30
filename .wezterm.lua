@@ -95,6 +95,11 @@ config.keys = {
   },
   {
     mods = 'LEADER',
+    key = 'x',
+    action = act.CloseCurrentPane({ confirm = false }),
+  },
+  {
+    mods = 'LEADER',
     key = 'h',
     action = act.ActivatePaneDirection('Left'),
   },
