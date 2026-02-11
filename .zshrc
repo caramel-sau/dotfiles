@@ -43,10 +43,24 @@ eval "$(pyenv init --path)"
 # 履歴を前方一致に限定させる
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
-#
+
 # エイリアス
 alias la="ls -alh"
 alias vi="nvim"
 alias dot="cd ~/.dotfiles/"
 alias icat="wezterm imgcat"
-alias tabn="wezterm cli set-tab-title"
+alias gd="git diff"
+alias ga="git add"
+alias gph="git push"
+alias gpl"git pull"
+alias gs="git status"
+alias gco="git checkout"
+alias gcm="git commit -m"
+
+# 関数
+md2pdf() {
+  pandoc "$1" \
+    -o "${1%.md}.pdf" \
+    --pdf-engine=wkhtmltopdf \
+    -c ~/wkhtmltopdf.css
+}

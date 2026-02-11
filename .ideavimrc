@@ -1,0 +1,18 @@
+let mapleader = ' '
+
+set relativenumber
+
+" Normal Mode
+nnoremap <ESC><ESC> :nohlsearch<CR>
+nnoremap gx :tabclose<CR>
+nnoremap gt :tabnew<CR>
+nnoremap gn gt
+nnoremap gp gT
+
+" Insert Mode
+inoremap jk <Esc>
+
+" Command Mode
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
