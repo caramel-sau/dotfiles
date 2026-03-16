@@ -49,13 +49,24 @@ alias la="ls -alh"
 alias vi="nvim"
 alias dot="cd ~/.dotfiles/"
 alias icat="wezterm imgcat"
+
+alias g="git"
+alias gl="git log"
 alias gd="git diff"
 alias ga="git add"
+alias gf="git fetch"
 alias gph="git push"
 alias gpl"git pull"
 alias gs="git status"
+alias gb="git branch"
 alias gco="git checkout"
 alias gcm="git commit -m"
+
+alias cx='codex --sandbox workspace-write'
+alias cxr='codex --sandbox read-only'
+alias cxa='codex --full-auto --sandbox workspace-write'
+
+alias cl='claude'
 
 # 関数
 md2pdf() {
@@ -63,4 +74,8 @@ md2pdf() {
     -o "${1%.md}.pdf" \
     --pdf-engine=wkhtmltopdf \
     -c ~/wkhtmltopdf.css
+}
+
+tabn() {
+  wezterm cli set-tab-title "$1"
 }

@@ -131,35 +131,19 @@ config.key_tables = {
   resize_pane = {
     {
       key = 'h',
-      action = act.AdjustPaneSize({ 'Left', 1 }),
-    },
-    {
-      key = 'H',
-      action = act.AdjustPaneSize({ 'Left', 10 }),
+      action = act.AdjustPaneSize({ 'Left', 5 }),
     },
     {
       key = 'j',
-      action = act.AdjustPaneSize({ 'Down', 1 }),
-    },
-    {
-      key = 'J',
-      action = act.AdjustPaneSize({ 'Down', 10 }),
+      action = act.AdjustPaneSize({ 'Down', 2 }),
     },
     {
       key = 'k',
-      action = act.AdjustPaneSize({ 'Up', 1 }),
-    },
-    {
-      key = 'K',
-      action = act.AdjustPaneSize({ 'Up', 10 }),
+      action = act.AdjustPaneSize({ 'Up', 2 }),
     },
     {
       key = 'l',
-      action = act.AdjustPaneSize({ 'Right', 1 }),
-    },
-    {
-      key = 'L',
-      action = act.AdjustPaneSize({ 'Right', 10 }),
+      action = act.AdjustPaneSize({ 'Right', 5 }),
     },
     -- Cancel the mode
     {
