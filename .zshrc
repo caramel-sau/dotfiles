@@ -6,6 +6,8 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
 export "PATH=/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(mise activate zsh)"
 
 # jrogue オプション
 export ROGUEOPTS="terse,passgo,jump,color,idscrl,name=caramel-25,fruit=アップルパイ "
@@ -38,7 +40,7 @@ setopt list_packed
 setopt auto_cd
 
 # pyenvの設定
-eval "$(pyenv init --path)"
+# eval "$(pyenv init --path)"
 
 # 履歴を前方一致に限定させる
 bindkey '^P' history-beginning-search-backward
@@ -56,7 +58,7 @@ alias gd="git diff"
 alias ga="git add"
 alias gf="git fetch"
 alias gph="git push"
-alias gpl"git pull"
+alias gpl="git pull"
 alias gs="git status"
 alias gb="git branch"
 alias gco="git checkout"

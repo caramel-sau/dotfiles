@@ -3,7 +3,7 @@ return {
   event = "BufReadPost",
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter.configs").setup({
+    require("nvim-treesitter").setup({
       ensure_installed = {
         "lua",
         "ruby",
@@ -16,11 +16,9 @@ return {
         "yaml",
         "html",
         "css",
-        "lua",
         "vim",
         "markdown",
         "sql",
-        "yaml",
         "php",
         "vue",
       },
