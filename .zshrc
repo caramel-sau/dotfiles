@@ -9,6 +9,8 @@ export "PATH=/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(mise activate zsh)"
 
+PROMPT='%n@mba %1~ %# '
+
 # jrogue オプション
 export ROGUEOPTS="terse,passgo,jump,color,idscrl,name=caramel-25,fruit=アップルパイ "
 
