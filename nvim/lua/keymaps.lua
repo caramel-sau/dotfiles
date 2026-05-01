@@ -9,7 +9,6 @@ map('n', '<Leader>h', '<C-w>h', opts)
 
 -- Normal Mode
 map("n", "<ESC><ESC>", ":nohlsearch<CR>", opts)
-map("n", "gx", ":tabclose<CR>", opts)
 map("n", "gt", ":tabnew<CR>", opts)
 map("n", "gn", "gt", opts)
 map("n", "gp", "gT", opts)

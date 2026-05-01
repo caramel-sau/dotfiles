@@ -55,16 +55,18 @@ alias dot="cd ~/.dotfiles/"
 alias icat="wezterm imgcat"
 
 alias g="git"
-alias gl="git log"
+alias gl="git log --oneline"
 alias gd="git diff"
 alias ga="git add"
+alias gaa="git add ."
 alias gf="git fetch"
-alias gph="git push"
+alias gps="git push"
 alias gpl="git pull"
-alias gs="git status"
-alias gb="git branch"
+alias gst="git status"
+alias gb="git branch -a"
 alias gco="git checkout"
-alias gcm="git commit -m"
+alias gsw="git switch"
+alias gc="git commit -m"
 
 alias cx='codex --sandbox workspace-write'
 alias cxr='codex --sandbox read-only'
