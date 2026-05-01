@@ -37,6 +37,7 @@ function tab_title(tab_info)
   -- in that tab
   return tab_info.active_pane.title
 end
+
 wezterm.on(
   'format-tab-title',
   function(tab, tabs, panes, config, hover, max_width)
@@ -78,6 +79,11 @@ wezterm.on(
 config.leader = { key = 'j', mods = 'CTRL', timeout_milliseconds = 1000 }
 local act = wezterm.action
 config.keys = {
+  {
+    key = 'f',
+    mods = 'LEADER',
+    action = wezterm.action.QuickSelect,
+  },
   {
     mods = 'LEADER',
     key = '[',
@@ -124,6 +130,18 @@ config.keys = {
     action = act.ActivateKeyTable({
       name = 'resize_pane',
       one_shot = false,
+    }),
+  },
+  {
+    mods = "LEADER",
+    key = "e",
+    action = act.PromptInputLine({
+      description = "Enter new tab name",
+      action = wezterm.action_callback(function(window, pane, line)
+        if line then
+          window:active_tab():set_title(line)
+        end
+      end),
     }),
   },
 }
