@@ -57,6 +57,7 @@ alias icat="wezterm imgcat"
 alias g="git"
 alias gl="git log --oneline"
 alias gd="git diff"
+alias gds="git diff --staged"
 alias ga="git add"
 alias gaa="git add ."
 alias gf="git fetch"
@@ -68,11 +69,12 @@ alias gco="git checkout"
 alias gsw="git switch"
 alias gc="git commit -m"
 
-alias cx='codex --sandbox workspace-write'
+alias cx='codex'
 alias cxr='codex --sandbox read-only'
-alias cxa='codex --full-auto --sandbox workspace-write'
+alias cxp='codex exec'
 
 alias cl='claude'
+alias clp='claude -p'
 
 # 関数
 md2pdf() {
