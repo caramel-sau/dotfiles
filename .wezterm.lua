@@ -86,11 +86,6 @@ config.keys = {
   },
   {
     mods = 'LEADER',
-    key = '[',
-    action = act.ActivateCopyMode,
-  },
-  {
-    mods = 'LEADER',
     key = '\\',
     action = act.SplitHorizontal({ domain = 'CurrentPaneDomain' }),
   },
@@ -132,6 +127,18 @@ config.keys = {
       one_shot = false,
     }),
   },
+  -- タブ移動
+  {
+    key = "H",
+    mods = "LEADER",
+    action = act.MoveTabRelative(-1),
+  },
+  {
+    key = "L",
+    mods = "LEADER",
+    action = act.MoveTabRelative(1),
+  },
+  -- タブ名編集
   {
     mods = "LEADER",
     key = "e",

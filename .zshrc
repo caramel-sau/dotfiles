@@ -76,6 +76,9 @@ alias cxp='codex exec'
 alias cl='claude'
 alias clp='claude -p'
 
+alias md='LESS="-Q" glow'
+alias mda='md -a .'
+
 # 関数
 md2pdf() {
   pandoc "$1" \
