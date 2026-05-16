@@ -30,6 +30,16 @@ if not vim.g.vscode then
   vim.opt.signcolumn = "yes"
   vim.opt.swapfile = false
   vim.cmd("highlight LineNr guifg=#8a70ac")
+
+  local group = vim.api.nvim_create_augroup("UserFormatOptions", { clear = true })
+
+  vim.api.nvim_create_autocmd("FileType", {
+    group = group,
+    pattern = "*",
+    callback = function()
+      vim.opt_local.formatoptions:remove({ "r", "o" })
+    end,
+  })
 end
 
 vim.g.mapleader = " "
