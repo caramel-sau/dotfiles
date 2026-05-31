@@ -79,6 +79,8 @@ alias clp='claude -p'
 alias md='LESS="-Q" glow'
 alias mda='md -a .'
 
+alias c='cargo'
+
 # 関数
 md2pdf() {
   pandoc "$1" \
