@@ -17,6 +17,7 @@ local lsp_servers = {
   "emmet_language_server",
   "eslint",
   "gopls",
+  "rust_analyzer",
 }
 
 require("mason").setup({
@@ -28,6 +29,8 @@ require("mason").setup({
     },
   },
 })
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local on_attach = function(client, bufnr)
   local buf_map = function(mode, lhs, rhs, opts)
@@ -50,11 +53,11 @@ end
 
 vim.lsp.config('*', {
   on_attach = on_attach,
+  capabilities = capabilities,
 })
 
 require("mason-lspconfig").setup({
   ensure_installed = lsp_servers,
-  capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
 -- vue_ls は事前に ts_ls と vtsls を設定しておく必要がある
@@ -63,6 +66,19 @@ vim.lsp.config('ts_ls', {
 })
 vim.lsp.config('vtsls', {
   filetypes = { "javascript", "typescript", "vue" },
+})
+
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
+      check = {
+        command = "clippy",
+      },
+    },
+  },
 })
 
 vim.lsp.enable(lsp_servers)

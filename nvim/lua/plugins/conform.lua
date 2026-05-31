@@ -19,6 +19,7 @@ return {
         typescriptreact = { "prettierd", "prettier" },
         javascript = { "prettierd", "prettier" },
         typescript = { "prettierd", "prettier" },
+        rust = { "rustfmt" },
         python = { "prettierd" },
         json = { "prettierd", "prettier" },
         html = { "prettierd", "prettier" },
