@@ -46,3 +46,22 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+vim.list = vim.list or {}
+vim.list.unique = vim.list.unique
+  or function(list)
+    local seen = {}
+    return vim.tbl_filter(function(item)
+      if seen[item] then
+        return false
+      end
+      seen[item] = true
+      return true
+    end, list)
+  end
+
+vim.filetype.add({
+  extension = {
+    vue = "vue",
+  },
+})

@@ -8,7 +8,6 @@ local lsp_servers = {
   "docker_compose_language_service",
   "html",
   "jsonls",
-  "ts_ls",
   "vtsls",
   "marksman",
   "pylsp",
@@ -20,6 +19,21 @@ local lsp_servers = {
   "rust_analyzer",
 }
 
+local mason_tools = {
+  "tree-sitter-cli",
+  "prettierd",
+  "prettier",
+}
+
+local vue_language_server_path = vim.fn.stdpath("data")
+  .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+local vue_plugin = {
+  name = "@vue/typescript-plugin",
+  location = vue_language_server_path,
+  languages = { "vue" },
+  configNamespace = "typescript",
+}
+
 require("mason").setup({
   ui = {
     icons = {
@@ -29,6 +43,23 @@ require("mason").setup({
     },
   },
 })
+
+local ensure_mason_tools = function(package_names)
+  if #vim.api.nvim_list_uis() == 0 then
+    return
+  end
+
+  local registry = require("mason-registry")
+
+  for _, package_name in ipairs(package_names) do
+    local ok, package = pcall(registry.get_package, package_name)
+    if ok and not package:is_installed() then
+      package:install()
+    end
+  end
+end
+
+ensure_mason_tools(mason_tools)
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -60,12 +91,18 @@ require("mason-lspconfig").setup({
   ensure_installed = lsp_servers,
 })
 
--- vue_ls は事前に ts_ls と vtsls を設定しておく必要がある
-vim.lsp.config('ts_ls', {
-  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
-})
+-- vue_ls は CSS/HTML を担当し、.vue 内の TypeScript は vtsls が担当する
 vim.lsp.config('vtsls', {
-  filetypes = { "javascript", "typescript", "vue" },
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
+  settings = {
+    vtsls = {
+      tsserver = {
+        globalPlugins = {
+          vue_plugin,
+        },
+      },
+    },
+  },
 })
 
 vim.lsp.config('rust_analyzer', {
