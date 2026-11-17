@@ -29,6 +29,8 @@ if not vim.g.vscode then
   vim.opt.showtabline = 2
   vim.opt.signcolumn = "yes"
   vim.opt.swapfile = false
+  vim.opt.splitright = true
+  vim.opt.splitbelow = true
   vim.cmd("highlight LineNr guifg=#8a70ac")
 
   local group = vim.api.nvim_create_augroup("UserFormatOptions", { clear = true })
@@ -38,6 +40,17 @@ if not vim.g.vscode then
     pattern = "*",
     callback = function()
       vim.opt_local.formatoptions:remove({ "r", "o" })
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("FileType", {
+    group = group,
+    pattern = "python",
+    callback = function()
+      vim.opt_local.expandtab = true
+      vim.opt_local.shiftwidth = 4
+      vim.opt_local.softtabstop = 4
+      vim.opt_local.tabstop = 4
     end,
   })
 end

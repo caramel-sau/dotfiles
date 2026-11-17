@@ -11,6 +11,7 @@ local lsp_servers = {
   "vtsls",
   "marksman",
   "pylsp",
+  "ruff",
   "intelephense",
   "vue_ls",
   "emmet_language_server",
@@ -80,6 +81,19 @@ local on_attach = function(client, bufnr)
   buf_map('n', 'gr', vim.lsp.buf.references)
   -- 実装に飛ぶ
   buf_map('n', 'gi', vim.lsp.buf.implementation)
+  -- ドキュメントを表示する
+  buf_map('n', 'K', vim.lsp.buf.hover)
+  -- シンボル名を変更する
+  buf_map('n', '<leader>rn', vim.lsp.buf.rename)
+  -- 利用可能な修正を表示する
+  buf_map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action)
+  -- 前後の診断へ移動する
+  buf_map('n', '[d', function()
+    vim.diagnostic.jump({ count = -1, float = true })
+  end)
+  buf_map('n', ']d', function()
+    vim.diagnostic.jump({ count = 1, float = true })
+  end)
 end
 
 vim.lsp.config('*', {
@@ -89,6 +103,20 @@ vim.lsp.config('*', {
 
 require("mason-lspconfig").setup({
   ensure_installed = lsp_servers,
+})
+
+-- Python の補完や定義ジャンプは pylsp、lint と整形は Ruff に任せる。
+-- 同じ警告が二重に表示されないよう pylsp 側の lint は無効にする。
+vim.lsp.config('pylsp', {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = { enabled = false },
+        pyflakes = { enabled = false },
+        mccabe = { enabled = false },
+      },
+    },
+  },
 })
 
 -- vue_ls は CSS/HTML を担当し、.vue 内の TypeScript は vtsls が担当する

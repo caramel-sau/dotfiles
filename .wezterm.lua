@@ -80,8 +80,8 @@ config.leader = { key = 'j', mods = 'CTRL', timeout_milliseconds = 1000 }
 local act = wezterm.action
 config.keys = {
   {
-    key = 'f',
     mods = 'LEADER',
+    key = 'f',
     action = wezterm.action.QuickSelect,
   },
   {
@@ -93,11 +93,6 @@ config.keys = {
     mods = 'LEADER',
     key = '-',
     action = act.SplitVertical({ domain = 'CurrentPaneDomain' }),
-  },
-  {
-    mods = 'LEADER',
-    key = 'x',
-    action = act.CloseCurrentPane({ confirm = false }),
   },
   {
     mods = 'LEADER',
@@ -129,13 +124,13 @@ config.keys = {
   },
   -- タブ移動
   {
-    key = "H",
     mods = "LEADER",
+    key = "H",
     action = act.MoveTabRelative(-1),
   },
   {
-    key = "L",
     mods = "LEADER",
+    key = "L",
     action = act.MoveTabRelative(1),
   },
   -- タブ名編集

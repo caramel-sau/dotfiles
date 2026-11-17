@@ -5,6 +5,7 @@ return {
   config = function()
     local parsers = {
       "lua",
+      "python",
       "ruby",
       "go",
       "rust",

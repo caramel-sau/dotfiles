@@ -20,7 +20,7 @@ return {
         javascript = { "prettierd", "prettier" },
         typescript = { "prettierd", "prettier" },
         rust = { "rustfmt" },
-        python = { "prettierd" },
+        python = { "ruff_format" },
         json = { "prettierd", "prettier" },
         html = { "prettierd", "prettier" },
         css = { "prettierd", "prettier" },

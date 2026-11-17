@@ -71,7 +71,7 @@ alias gc="git commit -m"
 
 alias cx='codex'
 alias cxr='codex --sandbox read-only'
-alias cxp='codex exec'
+alias cxp='codex exec --sandbox read-only --skip-git-repo-check'
 
 alias cl='claude'
 alias clp='claude -p'
